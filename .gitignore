@@ -4,11 +4,13 @@
 *.uvopt
 *.dep
 *.bak
+*.swp
 *.uvgui.*
 .project
 .settings
 .cproject
 obj/main
+obj/*
 patches/
 startup_stm32f10x_md_gcc.s
 

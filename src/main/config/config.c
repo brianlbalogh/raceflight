@@ -911,6 +911,10 @@ void writeEEPROM(void)
     // write it
     FLASH_Unlock();
     while (attemptsRemaining--) {
+#ifdef STM32F40_41xxx
+        FLASH_ClearFlag(FLASH_FLAG_EOP | FLASH_FLAG_OPERR| FLASH_FLAG_WRPERR |
+	                FLASH_FLAG_PGAERR | FLASH_FLAG_PGPERR | FLASH_FLAG_PGSERR);
+#endif
 #ifdef STM32F303
         FLASH_ClearFlag(FLASH_FLAG_EOP | FLASH_FLAG_PGERR | FLASH_FLAG_WRPERR);
 #endif
